@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  django:
+    build: .
+    container_name: core2
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/core2
+    ports:
+      - "8000:8000"
